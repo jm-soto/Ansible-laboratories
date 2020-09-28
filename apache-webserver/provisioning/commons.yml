@@ -1,5 +1,5 @@
 ---
-- name: Common configuration
+- name: Configuración general
   hosts: webserver
   roles:
     - commons

@@ -1,0 +1,6 @@
+---
+# Estado de paquetes comunes: present/absent
+commons_pakcets_status: present
+# Zona horaria
+time_zone: Europe/Madrid
+...

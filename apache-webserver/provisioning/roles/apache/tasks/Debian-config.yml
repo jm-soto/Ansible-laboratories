@@ -1,0 +1,33 @@
+---
+- name: Habilitando servicio
+  service:
+    name: "{{ apache_service }}"
+    enabled: yes
+
+- name: Configurando puerto del servicio
+  lineinfile:
+    path: "{{ apache_config_dir }}/ports.conf"
+    regex: "{{ item.regex }}"
+    line: "{{ item.line }}"
+    state: present
+    mode: 0644
+  with_items: "{{ apache_port_configuration }}"
+  notify: reiniciar apache
+
+- name: Habilitando módulos adicionales
+  apache2_module:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ apache_enable_modules }}"
+  when: apache_enable_modules is defined
+  notify: reiniciar apache
+
+- name: Deshabilitando módulos
+  apache2_module:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ apache_disable_modules }}"
+  when: apache_disable_modules is defined
+  notify: reiniciar apache
+
+...

@@ -1,4 +1,5 @@
 ---
 # file site.yml
 - import_playbook: commons.yml
+- import_playbook: apache.yml
 ...

@@ -1,0 +1,11 @@
+---
+- name: Actualizando repositorios
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Comprobando estado de paquetes necesarios
+  apt:
+    name: "{{ apache_packages }}"
+    state: "{{ apache_packages_status }}"
+...

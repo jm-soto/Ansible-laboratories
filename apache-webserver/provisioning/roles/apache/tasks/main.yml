@@ -1,0 +1,28 @@
+---
+- name: Cargando variables para distribución
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Definiendo paquetes de instalación de Apache
+  set_fact:
+    apache_packages: "{{ __apache_packages }}"
+  when: apache_packages is not defined
+
+- name: Instalación de servidor web Apache
+  include: "{{ ansible_os_family }}-apache.yml"
+
+- name: Obteniendo versión de Apache instalada
+  command: "{{ apache_daemon_path }}{{ apache_service }} -v"
+  changed_when: false
+  register: _apache_version
+
+- name: Generando 'fact' con versión de Apache
+  set_fact:
+    apache_version: "{{ _apache_version.stdout.split()[2].split('/')[1] }}"
+
+- name: Cargando variables según versión de Apache
+  include_vars: apache-24.yml
+  when: "apache_version.split('.')[1] == '4'"
+
+- name: Configuración de servidor web Apache
+  include: "{{ ansible_os_family }}-config.yml"
+...

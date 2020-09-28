@@ -1,13 +1,15 @@
-- name: Update cache
-  apt:
-    update_cache: yes
-    cache_valid_time: 3600
+---
+- name: Cargando variables de distribución
+  include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Permit Ansible check mode
-  apt:
-    name: python-apt
-    state: latest
+- name: Definiendo paquetes a instalar
+  set_fact:
+    commons_packets: "{{ __commons_packets }}"
+  when: commons_packets is not defined
 
-- name: Configure timezones
-  timezone:
-    name: Europe/Madrid
+- name: Instalación de paquetes
+  include_tasks: "{{ ansible_os_family }}-commons.yml"
+
+- name: Configurando del sistema
+  include_tasks: "{{ ansible_os_family }}-configure.yml"
+...

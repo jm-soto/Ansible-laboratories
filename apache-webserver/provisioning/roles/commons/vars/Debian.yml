@@ -1,0 +1,4 @@
+---
+__commons_packets:
+    - python-apt
+...

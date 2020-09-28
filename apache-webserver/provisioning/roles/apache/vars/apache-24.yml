@@ -1,0 +1,14 @@
+---
+##############################
+# Variables para versión 2.4 #
+##############################
+
+apache_version: '2.4'
+apache_default_vhost: 000-default.conf
+apache_port_configuration:
+    - {
+        regex: "^Listen",
+        line: "Listen {{ apache_port }}"
+    }
+
+...

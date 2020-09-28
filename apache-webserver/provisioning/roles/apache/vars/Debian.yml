@@ -1,0 +1,11 @@
+---
+# Definición de entorno
+apache_daemon_path: /usr/sbin/
+apache_service: apache2
+apache_config_dir: /etc/apache2
+
+# Paquetes necesarios para el servicio
+__apache_packages:
+  - apache2
+  - apache2-utils
+...

@@ -1,0 +1,24 @@
+---
+######################################
+# Configuración general del servidor #
+######################################
+
+# Estado de los paquetes necesarios; present o absent 
+apache_packages_status: present
+
+# Puerto de escucha del servidor
+apache_port: 80
+
+# Habilitar módulos adicionales
+apache_enable_modules: 
+    - rewrite
+    - expires
+    - headers
+
+# Deshabilitar módulos (lista)
+#apache_disable_modules:
+#    - rewrite
+
+# Estado para reinicio del servicio (restarted/reloaded)
+apache_restart_status: restarted
+...
