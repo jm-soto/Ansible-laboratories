@@ -1,0 +1,6 @@
+---
+- name: Common configuration
+  hosts: webserver
+  roles:
+    - commons
+...
