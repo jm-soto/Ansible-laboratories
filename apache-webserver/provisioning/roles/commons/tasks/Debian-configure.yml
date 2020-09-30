@@ -1,5 +1,7 @@
 ---
-- name: Configure timezones
+# Configuration tasks for Debian systems.
+
+- name: Configure timezones.
   timezone:
     name: "{{ time_zone }}"
 ...

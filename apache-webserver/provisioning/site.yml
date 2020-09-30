@@ -1,5 +1,13 @@
 ---
-# file site.yml
+# This file include playbooks to apply. Some recomendations and tips:
+# - If you want to disable any playbook, you can comment the corresponding import_playbook line.
+# - If you want to enable another playbooks, you need create a new [ playbook_name | rol_name ].yml file. 
+#   This file must defined playbook description, hosts to apply, and tasks or roles (you can establish
+#   other options).
+# - The playbooks will be applied according to the established order.
+
 - import_playbook: commons.yml
+
 - import_playbook: apache.yml
+
 ...

@@ -1,4 +1,6 @@
 ---
-__commons_packets:
+# Especific variables for Debian systems
+
+__commons_packages:
     - python-apt
 ...

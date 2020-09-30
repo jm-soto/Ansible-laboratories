@@ -1,6 +1,13 @@
 ---
-- name: Configuración general
+# This playbook will apply a general configuration to 'webserver' VM. 
+# - name: A little playbook description.
+# - hosts: Host / groups where playbook will be apply.
+# - roles: In this case, All configuration (variables, tasks, files...) are 
+#   defined and organized in 'commons' rol.
+
+- name: General configuration
   hosts: webserver
   roles:
     - commons
+
 ...

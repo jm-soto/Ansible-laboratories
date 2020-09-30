@@ -1,6 +1,12 @@
 ---
-# Estado de paquetes comunes: present/absent
-commons_pakcets_status: present
-# Zona horaria
+# This file define DEFAULT variables. 
+# - It's important that variables defined here are OS independent.
+# - Specific OS variables (like necesaries packages to install) 
+#   are defined in 'rol_name/vars/(os_family).yml'
+
+# Common packages state: present (installed) or absent (uninstalled)
+commons_packages_status: present
+
+# Time zone:
 time_zone: Europe/Madrid
 ...

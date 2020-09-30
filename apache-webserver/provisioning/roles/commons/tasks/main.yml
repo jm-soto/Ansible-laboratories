@@ -1,15 +1,19 @@
 ---
-- name: Cargando variables de distribución
+# This file charge diferents variables and tasks based on host operating system. This allows
+# us to use this role to manage the configuration independently of the operating system
+# or distribution (Debian, CentOS, etc) owned by the hosts.
+
+- name: Include OS variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Definiendo paquetes a instalar
+- name: Define needed packages.
   set_fact:
-    commons_packets: "{{ __commons_packets }}"
-  when: commons_packets is not defined
+    commons_packages: "{{ __commons_packages }}"
+  when: commons_packages is not defined
 
-- name: Instalación de paquetes
+- name: Include common installation tasks.
   include_tasks: "{{ ansible_os_family }}-commons.yml"
 
-- name: Configurando del sistema
+- name: Include systems configuration tasks.
   include_tasks: "{{ ansible_os_family }}-configure.yml"
 ...

@@ -1,10 +1,11 @@
 ---
-# Definición de entorno
+# Debian systems variables
+
 apache_daemon_path: /usr/sbin/
 apache_service: apache2
 apache_config_dir: /etc/apache2
 
-# Paquetes necesarios para el servicio
+# Packages to install
 __apache_packages:
   - apache2
   - apache2-utils

@@ -1,24 +1,26 @@
 ---
-######################################
-# Configuración general del servidor #
-######################################
+# This file define DEFAULT variables for Apache web server configuration. 
+# - It's important that variables defined here are OS/Apache-version independent.
+# - Specific OS variables (like necesaries packages to install Apache or daemon name) 
+#   are defined in 'apache/vars/(os_family).yml'
+# - Specific Apache version variables are defined in 'apache/vars/apache-version.yml'
 
-# Estado de los paquetes necesarios; present o absent 
+# Apache packages state; present (installed) or absent (uninstalled)
 apache_packages_status: present
 
-# Puerto de escucha del servidor
+# Apache server port
 apache_port: 80
 
-# Habilitar módulos adicionales
+# Enabled additional modules
 apache_enable_modules: 
     - rewrite
     - expires
     - headers
 
-# Deshabilitar módulos (lista)
+# Disabled modules
 #apache_disable_modules:
 #    - rewrite
 
-# Estado para reinicio del servicio (restarted/reloaded)
+# Apache service restart state (restarted/reloaded)
 apache_restart_status: restarted
 ...

@@ -1,5 +1,7 @@
 ---
-- name: reiniciar apache
+# Handlers are tasks invoked from other tasks through 'notify: handler_name'.
+
+- name: restart apache
   service:
     name: "{{ apache_service }}"
     state: "{{ apache_restart_status }}"

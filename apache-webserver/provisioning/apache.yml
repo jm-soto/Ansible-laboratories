@@ -1,5 +1,11 @@
 ---
-- name: Servidor Web Apache
+# This playbook will install and configure an Apache web server. 
+# - name: A little playbook description.
+# - hosts: Host / groups where playbook will be apply.
+# - roles: In this case, All configuration (variables, tasks, files...) are 
+#   defined and organized in 'apache' rol.
+
+- name: Apache web server
   hosts: webserver
   roles:
     - apache

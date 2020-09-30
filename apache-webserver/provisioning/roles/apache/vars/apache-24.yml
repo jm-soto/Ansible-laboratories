@@ -1,7 +1,5 @@
 ---
-##############################
-# Variables para versión 2.4 #
-##############################
+# Apache 2.4 variables 
 
 apache_version: '2.4'
 apache_default_vhost: 000-default.conf

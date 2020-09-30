@@ -1,10 +1,14 @@
-- name: Update cache
+---
+# Provisioning tasks for Debian systems.
+
+- name: Update cache.
   apt:
     update_cache: yes
     cache_valid_time: 3600
 
-- name: Permit Ansible check mode
+- name: Install packages.
   apt:
-    name: "{{ commons_packets }}"
-    state: "{{ commons_pakcets_status }}"
+    name: "{{ commons_packages }}"
+    state: "{{ commons_packages_status }}"
 
+...

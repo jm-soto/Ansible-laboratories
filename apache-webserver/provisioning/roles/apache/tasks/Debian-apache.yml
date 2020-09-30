@@ -1,10 +1,12 @@
 ---
-- name: Actualizando repositorios
+# Provisioning tasks for Debian systems.
+
+- name: Repositories update.
   apt:
     update_cache: yes
     cache_valid_time: 3600
 
-- name: Comprobando estado de paquetes necesarios
+- name: Check packets state.
   apt:
     name: "{{ apache_packages }}"
     state: "{{ apache_packages_status }}"
